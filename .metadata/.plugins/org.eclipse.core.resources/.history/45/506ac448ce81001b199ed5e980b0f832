@@ -26,6 +26,8 @@ public class CatalogResource {
 		
 		return rating.stream()
 				.map(ratings ->  new CatalogItem("Name", "Desc", ratings.getRating()))
-                .collect(Collectors.toList());	
+                .collect(Collectors.toList());
+		
+		
 	}
 }
