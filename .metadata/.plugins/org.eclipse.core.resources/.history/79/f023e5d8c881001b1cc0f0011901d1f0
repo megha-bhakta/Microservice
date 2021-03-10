@@ -1,0 +1,5 @@
+package com.demo.moviecatalogservice.Controller;
+
+public class CatalogResource {
+
+}
