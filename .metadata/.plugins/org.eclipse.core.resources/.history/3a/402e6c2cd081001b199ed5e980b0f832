@@ -20,7 +20,7 @@ public class CatalogResource {
 	
 	
 	@Autowired
-	public RestTemplate restTemplate;
+	public RestTemplate resttemplate;
 
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getcatalog(@PathVariable("userId") String userId){
@@ -30,11 +30,10 @@ public class CatalogResource {
 	             new Rating("5678", 4)
 	    );
 		
-		return ratingList.stream()
+		return rating.stream()
 				.map(rating -> {
-                    Movie movie = restTemplate.getForObject("http://localhost:8082/movies/" + rating.getMovieId(), Movie.class);
-                    return new CatalogItem(movie.getName(), "Description", rating.getRating());
-                })
+					Movie movie = resttemplate.getForObject("https://localhost:8082/movies/"+ rating.getMovieId(), Movie.class)
+				})
                 .collect(Collectors.toList());	
 	}
 }
